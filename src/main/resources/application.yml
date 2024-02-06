@@ -1,0 +1,39 @@
+
+server:
+  port: 8080
+  datasource:
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+      properties:
+        hibernate:
+          format_sql: true
+          show_sql: true
+          generate_statistics: true
+          jdbc:
+            time_zone: Asia/Seoul
+          default_batch_fetch_size: 100
+      open-in-view: false
+    show-sql: true
+    generate-ddl: true
+    database: h2
+  h2:
+    console:
+      enabled: true
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
